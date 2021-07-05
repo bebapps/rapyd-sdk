@@ -1,0 +1,8 @@
+{
+  "update-subscription-disburse": {
+    "path": "/v1/payouts/subscriptions/{subscription}"
+  },
+  "cancel-subscription-disburse": {
+    "path": "/v1/payouts/subscriptions/{subscription}"
+  }
+}

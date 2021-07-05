@@ -1,0 +1,66 @@
+[
+  {
+    "id": "collect",
+    "urls": [
+      "https://docs.rapyd.net/build-with-rapyd/reference/payment-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/group-payment-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/escrow-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/refund-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/customer-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/address-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/customer-payment-method-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/payment-method-type-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/tokens",
+      "https://docs.rapyd.net/build-with-rapyd/reference/product-object-collect",
+      "https://docs.rapyd.net/build-with-rapyd/reference/sku-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/plan-object-collect",
+      "https://docs.rapyd.net/build-with-rapyd/reference/subscription-object-collect",
+      "https://docs.rapyd.net/build-with-rapyd/reference/subscription-item-object-collect",
+      "https://docs.rapyd.net/build-with-rapyd/reference/usage-record-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/coupon-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/discount-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/order-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/return-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/invoice-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/invoice-item-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/checkout-page-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/rapyd-protect-errors-rapyd-authorization"
+    ]
+  },
+  {
+    "id": "disburse",
+    "urls": [
+      "https://docs.rapyd.net/build-with-rapyd/reference/payout-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/payout-method-type-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/sender-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/beneficiary-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/additional-sender-and-beneficiary-fields",
+      "https://docs.rapyd.net/build-with-rapyd/reference/beneficiary-tokenization-page-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/subscription-object-disburse",
+      "https://docs.rapyd.net/build-with-rapyd/reference/plan-object-disburse",
+      "https://docs.rapyd.net/build-with-rapyd/reference/product-object-disburse",
+      "https://docs.rapyd.net/build-with-rapyd/reference/service-provider-object"
+    ]
+  },
+  {
+    "id": "wallet",
+    "urls": [
+      "https://docs.rapyd.net/build-with-rapyd/reference/wallet-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/wallet-contact-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/wallet-transaction-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/identity-verification-object"
+    ]
+  },
+  {
+    "id": "issuing",
+    "urls": [
+      "https://docs.rapyd.net/build-with-rapyd/reference/issued-card-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/card-details-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/rapyd-authorization-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/remote-authorization-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/issued-card-transaction-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/issued-bank-account-number-object",
+      "https://docs.rapyd.net/build-with-rapyd/reference/issuing-platform-errors"
+    ]
+  }
+]
