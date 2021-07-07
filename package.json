@@ -7,7 +7,6 @@
   ],
   "scripts": {
     "watch": "tsc --watch",
-    "start": "node ./dist/example.js",
     "prepublishOnly": "tsc",
     "extract-references-from-docs": "node ./scripts/extract-references-from-docs.js",
     "generate-types-from-references": "node ./scripts/generate-types-from-references.js"

@@ -184,4 +184,19 @@ export class RapydClient {
       ).toString('base64')
     );
   }
+
+  public getWebhookSignature(webhookUrl: string, saltHeader: string, timestampHeader: string, rawBody: string) {
+    return (
+      Buffer.from(
+        crypto.createHmac('sha256', this.secretKey)
+          .update(webhookUrl)
+          .update(saltHeader)
+          .update(timestampHeader)
+          .update(this.accessKey)
+          .update(this.secretKey)
+          .update(rawBody)
+          .digest('hex')
+      ).toString('base64')
+    );
+  }
 }
