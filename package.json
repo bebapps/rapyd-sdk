@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "watch": "tsc --watch",
-    "prepublishOnly": "tsc",
+    "prepublishOnly": "npm run extract-references-from-docs && npm run generate-types-from-references && tsc",
     "extract-references-from-docs": "node ./scripts/extract-references-from-docs.js",
     "generate-types-from-references": "node ./scripts/generate-types-from-references.js"
   },
