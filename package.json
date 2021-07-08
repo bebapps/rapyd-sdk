@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "main": "./dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "watch": "tsc --watch",
