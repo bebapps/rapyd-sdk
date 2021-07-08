@@ -4,7 +4,8 @@
   "main": "./dist/index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "scripts/references.json"
   ],
   "scripts": {
     "watch": "tsc --watch",
