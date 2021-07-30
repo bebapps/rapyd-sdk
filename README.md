@@ -7,19 +7,19 @@ An un-official [Rapyd](https://rapyd.net) SDK for Node.js.
 To install the SDK you'll need to have the npm CLI installed - then run the following command in your project's root directory.
 
 ```
-npm install --save @bebapps/rapid-sdk
+npm install --save @bebapps/rapyd-sdk
 ```
 
-## RapidClient
+## RapydClient
 
-The core of the SDK is made up from the [`RapidClient`](./src/core/RapydClient.ts) class. It handles authorization, parameter encoding, signing and making requests, error handling, webhook verification, and more.
+The core of the SDK is made up from the [`RapydClient`](./src/core/RapydClient.ts) class. It handles authorization, parameter encoding, signing and making requests, error handling, webhook verification, and more.
 
-The `RapidClient` class takes in your Rapid secret key and access key, as well as an optional base URL (defaults to: "sandboxapi.rapyd.net").
+The `RapydClient` class takes in your Rapyd secret key and access key, as well as an optional base URL (defaults to: "sandboxapi.rapyd.net").
 
 ```ts
-import { RapidClient } from '@bebapps/rapid-sdk';
+import { RapydClient } from '@bebapps/rapyd-sdk';
 
-const rapid = new RapidClient(
+const rapyd = new RapydClient(
   'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
   'xxxxxxxxxxxxxxxxxxxx',
 );
@@ -29,14 +29,14 @@ const rapid = new RapidClient(
 
 ## Making API requests
 
-If you like calling the Rapid API directly (using hard coded URL paths and parameters) you can make use of the convenience methods exposed on the `RapidClient` class.
+If you like calling the Rapyd API directly (using hard coded URL paths and parameters) you can make use of the convenience methods exposed on the `RapydClient` class.
 
 ```ts
-import { Wallet } from '@bebapps/rapid-sdk/dist/generated/wallet/types/Wallet';
+import { Wallet } from '@bebapps/rapyd-sdk/dist/generated/wallet/types/Wallet';
 
 // ...
 
-const response = await rapid.get('/v1/user/{}', 'ewallet_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+const response = await rapyd.get('/v1/user/{}', 'ewallet_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 const wallet = await response.data<Wallet>();
 
 console.log(wallet); // { id: 'ewallet_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type: 'person', status: 'ACT', [...] }
@@ -46,11 +46,11 @@ You may notice the use of `{}` in the path. These are auto-encoded placeholders.
 
 ## Validating webhook requests
 
-This SDK can also be used to validate incoming webhooks from Rapid. If you'd like a real-world example, checkout the [Beb Pay store service verify webhook function](https://github.com/bebapps/beb-pay-function-apps/blob/master/stores/core/rapyd/verifyWebhook.ts).
+This SDK can also be used to validate incoming webhooks from Rapyd. If you'd like a real-world example, checkout the [Beb Pay store service verify webhook function](https://github.com/bebapps/beb-pay-function-apps/blob/master/stores/core/rapyd/verifyWebhook.ts).
 
 ## Using auto-generated APIs
 
-Part of the magic this SDK provides is auto-generated APIs. These APIs are fully typed from the official Rapid documentation, so it can updated with a simple re-publish of the package.
+Part of the magic this SDK provides is auto-generated APIs. These APIs are fully typed from the official Rapyd documentation, so it can updated with a simple re-publish of the package.
 
 Because the APIs are _auto-generated_, the source for them cannot be found in the repository. Instead, you can use a tool like UNPKG to [navigate through the contents of the published npm package](https://unpkg.com/browse/@bebapps/rapyd-sdk/src/generated/).
 
@@ -59,7 +59,7 @@ Here's an example of creating a wallet using the auto-generated Wallet API.
 ```ts
 import { createWallet } from '@bebapps/rapyd-sdk/dist/generated/wallet/apis/Wallet';
 
-const wallet = await createWallet(rapid, {
+const wallet = await createWallet(rapyd, {
   contact: {
     contact_type: 'personal',
   },
@@ -69,11 +69,11 @@ const wallet = await createWallet(rapid, {
 console.log(wallet); // { id: 'ewallet_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type: 'person', status: 'ACT', [...] }
 ```
 
-The advantage to these auto-generated APIs is that you use them all exactly the same way: you provide your `RapidClient` instance, and an object containing all the parameters the API takes. It combines the path, query, and body parameters into one object. This means you can make the most of Intellisense functionality in your IDE to provide you with helpful suggestions and display documentation as you type.
+The advantage to these auto-generated APIs is that you use them all exactly the same way: you provide your `RapydClient` instance, and an object containing all the parameters the API takes. It combines the path, query, and body parameters into one object. This means you can make the most of Intellisense functionality in your IDE to provide you with helpful suggestions and display documentation as you type.
 
 ## Error handling
 
-By default, calling the `response.data()` function will automatically throw an error if the response contained an error code. The JavaScript Error `message` contains the message from the server (which usually contains super useful human-readable explanations) but also exposes the Rapid Error code on the `code` field on errors generated by the SDK.
+By default, calling the `response.data()` function will automatically throw an error if the response contained an error code. The JavaScript Error `message` contains the message from the server (which usually contains super useful human-readable explanations) but also exposes the Rapyd Error code on the `code` field on errors generated by the SDK.
 
 ```ts
 import { WalletError } from '@bebapps/rapyd-sdk/dist/generated/wallet/enums/WalletError';
@@ -81,7 +81,7 @@ import { WalletError } from '@bebapps/rapyd-sdk/dist/generated/wallet/enums/Wall
 // ...
 
 try {
-  const wallet = await createWallet(rapid, {
+  const wallet = await createWallet(rapyd, {
     contact: {
       contact_type: 'personal',
     },
@@ -103,4 +103,4 @@ try {
 
 ## Want to build your own SDK?
 
-The code that generates all the auto-generated APIs for this SDK helpfully publishes the "references" it pulls from the Rapid API documentation website. This file is included in the npm package, so you can helpfully download the [references.json file from UNPKG](https://unpkg.com/@bebapps/rapyd-sdk/scripts/references.json).
+The code that generates all the auto-generated APIs for this SDK helpfully publishes the "references" it pulls from the Rapyd API documentation website. This file is included in the npm package, so you can helpfully download the [references.json file from UNPKG](https://unpkg.com/@bebapps/rapyd-sdk/scripts/references.json).
